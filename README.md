@@ -107,3 +107,72 @@ This repository contains SQL table creation scripts for practicing database desi
 2. Select your database:
    ```sql
    USE your_database_name;
+
+   # 🌍 Tour Data Management System (MySQL)
+
+This project contains SQL scripts to create a relational database for managing tour bookings.
+
+---
+
+## 📌 Database Name
+TOUR_DATA
+
+---
+
+## 🧩 Tables Overview
+
+### 🔹 CUSTOMER
+Stores customer details.
+- Primary Key: CUSTOMER_ID
+
+---
+
+### 🔹 DESTINATION
+Stores travel destination details.
+- Primary Key: DESTINATION_ID
+
+---
+
+### 🔹 PACKAGES
+Stores tour package details.
+- Primary Key: PACKAGE_ID
+- Foreign Key:
+  - DESTINATION_ID → DESTINATION
+
+---
+
+### 🔹 BOOKINGS
+Stores booking records.
+- Primary Key: BOOKING_ID
+- Foreign Keys:
+  - CUSTOMER_ID → CUSTOMER
+  - PACKAGE_ID → PACKAGES
+
+---
+
+## 🔗 Relationships
+
+- One CUSTOMER can have multiple BOOKINGS
+- One PACKAGE can be booked multiple times
+- Each PACKAGE belongs to one DESTINATION
+
+---
+
+## ⚙️ Features
+
+- Use of PRIMARY KEY and FOREIGN KEY constraints
+- ENUM used for booking status
+- Relational database design
+
+---
+
+## 🚀 How to Run
+
+1. Open MySQL Workbench or Command Line
+2. Run:
+   ```sql
+   SOURCE database.sql;
+   SOURCE customer.sql;
+   SOURCE destination.sql;
+   SOURCE packages.sql;
+   SOURCE bookings.sql;
