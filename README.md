@@ -176,3 +176,85 @@ Stores booking records.
    SOURCE destination.sql;
    SOURCE packages.sql;
    SOURCE bookings.sql;
+
+
+
+# 🏥 Hospital Management System (MySQL)
+
+This project contains SQL scripts to create a relational database for managing hospital operations.
+
+---
+
+## 📌 Database Name
+HOSPITAL
+
+---
+
+## 🧩 Tables Overview
+
+### 🔹 DOCTORS
+Stores doctor details.
+- Primary Key: DOC_ID
+
+---
+
+### 🔹 PATIENTS
+Stores patient details.
+- Primary Key: PAT_ID
+
+---
+
+### 🔹 MEDICATION
+Stores prescribed medicines.
+- Primary Key: MED_ID
+- Foreign Keys:
+  - PAT_ID → PATIENTS
+  - DOC_ID → DOCTORS
+
+---
+
+### 🔹 APPOINTMENTS
+Stores appointment details.
+- Primary Key: APP_ID
+- Foreign Keys:
+  - DOC_ID → DOCTORS
+  - PAT_ID → PATIENTS
+
+---
+
+### 🔹 BILLS
+Stores billing information.
+- Primary Key: BILL_ID
+- Foreign Key:
+  - APP_ID → APPOINTMENTS
+
+---
+
+## 🔗 Relationships
+
+- One DOCTOR can treat many PATIENTS
+- One PATIENT can have multiple APPOINTMENTS
+- MEDICATION links DOCTOR and PATIENT
+- Each APPOINTMENT can generate one BILL
+
+---
+
+## ⚙️ Features
+
+- Use of PRIMARY KEY and FOREIGN KEY constraints
+- ENUM used for status tracking
+- Real-world relational database design
+
+---
+
+## 🚀 How to Run
+
+1. Open MySQL Workbench or Command Line
+2. Execute in order:
+   ```sql
+   SOURCE database.sql;
+   SOURCE doctors.sql;
+   SOURCE patients.sql;
+   SOURCE medication.sql;
+   SOURCE appointments.sql;
+   SOURCE bills.sql;
